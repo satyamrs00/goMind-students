@@ -16,7 +16,6 @@ def hello_world():
     return 'Hello World!'
 
 
-if os.environ.get('IS_DEVELOPMENT'):
-    app.run(debug=True)
-else:
-    app.run( host='0.0.0.0', port=os.environ.get('PORT') )
+if __name__ == '__main__':
+  
+    app.run(debug = True)
