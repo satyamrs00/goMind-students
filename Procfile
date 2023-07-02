@@ -1,1 +1,1 @@
-gunicorn app:app --bind
+gunicorn app:app
