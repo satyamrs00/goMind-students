@@ -69,13 +69,13 @@ const Homepage = () => {
                     Create a new student
                 </h1>
                 <div className='flex gap-4 w-full justify-center items-center'>
-                    <TextField variant='outlined' label='First Name' onChange={(e) => setNewStudent({...newStudent, first_name: e.target.value})} value={newStudent.first_name} className='w-full md:w-1/2' />
+                    <TextField required variant='outlined' label='First Name' onChange={(e) => setNewStudent({...newStudent, first_name: e.target.value})} value={newStudent.first_name} className='w-full md:w-1/2' />
                     <TextField variant='outlined' label='Last Name' onChange={(e) => setNewStudent({...newStudent, last_name: e.target.value})} value={newStudent.last_name} className='w-full md:w-1/2' />
                 </div>
-                <TextField fullWidth variant='outlined' label='Email' onChange={(e) => setNewStudent({...newStudent, email: e.target.value})} value={newStudent.email} />
+                <TextField required fullWidth variant='outlined' label='Email' onChange={(e) => setNewStudent({...newStudent, email: e.target.value})} value={newStudent.email} />
                 <FormControl fullWidth variant='outlined'>
                     <InputLabel>College</InputLabel>
-                    <Select fullWidth variant='outlined' label='College' onChange={(e) => setNewStudent({...newStudent, college: e.target.value})} value={newStudent.college} >
+                    <Select required fullWidth variant='outlined' label='College' onChange={(e) => setNewStudent({...newStudent, college: e.target.value})} value={newStudent.college} >
                         {colleges.map((college) => (
                             <MenuItem value={college}>{college}</MenuItem>
                         ))}
@@ -83,11 +83,11 @@ const Homepage = () => {
                     </Select>
                 </FormControl>
                 {newStudent.college === 'other' && (
-                    <TextField fullWidth variant='outlined' label='College Name' onChange={(e) => setNewStudent({...newStudent, new_college: e.target.value})} value={newStudent.new_college} />
+                    <TextField required fullWidth variant='outlined' label='College Name' onChange={(e) => setNewStudent({...newStudent, new_college: e.target.value})} value={newStudent.new_college} />
                 )}
                 <FormControl fullWidth variant='outlined'>
                     <InputLabel>Department</InputLabel>
-                    <Select fullWidth variant='outlined' label='Department' onChange={(e) => setNewStudent({...newStudent, department: e.target.value})} value={newStudent.department} >
+                    <Select required fullWidth variant='outlined' label='Department' onChange={(e) => setNewStudent({...newStudent, department: e.target.value})} value={newStudent.department} >
                         {departments.map((department) => (
                             <MenuItem value={department}>{department}</MenuItem>
                         ))}
@@ -95,7 +95,7 @@ const Homepage = () => {
                     </Select>
                 </FormControl>
                 {newStudent.department === 'other' && (
-                    <TextField fullWidth variant='outlined' label='Department Name' onChange={(e) => setNewStudent({...newStudent, new_department: e.target.value})} value={newStudent.new_department} />
+                    <TextField required fullWidth variant='outlined' label='Department Name' onChange={(e) => setNewStudent({...newStudent, new_department: e.target.value})} value={newStudent.new_department} />
                 )}
                 <Button variant='contained' onClick={saveStudent} >Save</Button>
             </div>
