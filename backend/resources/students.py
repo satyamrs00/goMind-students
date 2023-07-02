@@ -22,5 +22,10 @@ class StudentsApi(Resource):
 class CollegeListApi(Resource):
     def get(self):
         colleges = Student.objects().distinct('college')
-        print(colleges)
         return Response(json.dumps(colleges), mimetype="application/json", status=200)
+    
+
+class DepartmentListApi(Resource):
+    def get(self):
+        departments = Student.objects().distinct('department')
+        return Response(json.dumps(departments), mimetype="application/json", status=200)
