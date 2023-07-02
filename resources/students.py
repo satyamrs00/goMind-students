@@ -1,6 +1,7 @@
 from database.models import Student
 from flask_restful import Resource
 from flask import Response, request
+import json
 
 
 class StudentsApi(Resource):
@@ -10,6 +11,9 @@ class StudentsApi(Resource):
 
     def post(self):
         body = request.get_json()
-        student = Student(**body).save()
-        id = student.id
-        return {'id': str(id)}, 200
+        try:
+            student = Student(**body).save()
+        except Exception as e:
+            return {'error': str(e)}, 400
+        
+        return json.loads(student.to_json()), 201
