@@ -2,6 +2,7 @@ from flask import Flask
 from flask_cors import CORS
 from flask_restful import Api
 from resources.routes import initialize_routes
+import os
 
 
 app = Flask(__name__)
@@ -15,4 +16,7 @@ def hello_world():
     return 'Hello World!'
 
 
-app.run( debug=True )
+if os.environ.get('IS_DEVELOPMENT'):
+    app.run(debug=True)
+else:
+    app.run( host='0.0.0.0', port=7634 )
