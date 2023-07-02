@@ -19,4 +19,4 @@ def hello_world():
 if os.environ.get('IS_DEVELOPMENT'):
     app.run(debug=True)
 else:
-    app.run( host='0.0.0.0', port=7634 )
+    app.run( host='0.0.0.0', port=os.environ.get('PORT') )
