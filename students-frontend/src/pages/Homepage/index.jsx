@@ -36,7 +36,7 @@ const Homepage = () => {
     }
 
 
-    const saveStudent = () => {
+    const saveStudent = (e) => {
         try {
             axios.post(`${process.env.REACT_APP_API_URL}/api/students`, {
                 ...newStudent,
@@ -63,8 +63,8 @@ const Homepage = () => {
     }, [])
 
     return (
-        <div className="w-full h-screen bg-[#f0f0f0] grid grid-cols-1 md:grid-cols-2 gap-4 p-4 overflow-hidden">
-            <div className=" flex flex-col items-center justify-start gap-4 p-4 bg-[#fff] h-full rounded-lg overflow-y-auto">
+        <div className="w-full bg-[#f0f0f0] grid grid-cols-1 md:grid-cols-2 gap-4 p-4 overflow-hidden">
+            <div className=" flex h-screen flex-col items-center justify-start gap-4 p-4 bg-[#fff] h-full rounded-lg overflow-y-auto">
                 <h1 className="text-4xl font-bold p-5">
                     Create a new student
                 </h1>
@@ -97,9 +97,11 @@ const Homepage = () => {
                 {newStudent.department === 'other' && (
                     <TextField required fullWidth variant='outlined' label='Department Name' onChange={(e) => setNewStudent({...newStudent, new_department: e.target.value})} value={newStudent.new_department} />
                 )}
-                <Button variant='contained' onClick={saveStudent} >Save</Button>
+                <Button variant='contained' onClick={saveStudent} type='submit' className='w-full md:w-1/2 mx-auto' disabled={!newStudent.first_name || !newStudent.email || !newStudent.college || !newStudent.department || (newStudent.college === 'other' && !newStudent.new_college) || (newStudent.department === 'other' && !newStudent.new_department)}>
+                    Save
+                </Button>
             </div>
-            <div className=" flex flex-col items-center justify-start gap-4 p-4 bg-[#fff] h-full rounded-lg overflow-y-auto">
+            <div className=" flex h-screen flex-col items-center justify-start gap-4 p-4 bg-[#fff] h-full rounded-lg overflow-y-auto">
                 <h1 className="text-4xl font-bold p-5">
                     Students
                 </h1>
