@@ -63,8 +63,8 @@ const Homepage = () => {
     }, [])
 
     return (
-        <div className="w-full bg-[#f0f0f0] grid grid-cols-1 md:grid-cols-2 gap-4 p-4 overflow-hidden">
-            <div className=" flex h-screen flex-col items-center justify-start gap-4 p-4 bg-[#fff] h-full rounded-lg overflow-y-auto">
+        <div className="w-full md:h-screen bg-[#f0f0f0] grid grid-cols-1 md:grid-cols-2 gap-4 p-4 overflow-hidden">
+            <div className=" flex h-screen md:h-full flex-col items-center justify-start gap-4 p-4 bg-[#fff] h-full rounded-lg overflow-y-auto">
                 <h1 className="text-4xl font-bold p-5">
                     Create a new student
                 </h1>
@@ -101,7 +101,7 @@ const Homepage = () => {
                     Save
                 </Button>
             </div>
-            <div className=" flex h-screen flex-col items-center justify-start gap-4 p-4 bg-[#fff] h-full rounded-lg overflow-y-auto">
+            <div className=" flex h-screen md:h-full flex-col items-center justify-start gap-4 p-4 bg-[#fff] h-full rounded-lg overflow-y-auto">
                 <h1 className="text-4xl font-bold p-5">
                     Students
                 </h1>
