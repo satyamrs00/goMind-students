@@ -1,7 +1,8 @@
 from mongoengine import *
+import os
 
 
-connect(host="mongodb://127.0.0.1:27017/my_db")
+connect(host=os.environ.get('MONGODB_URI'))
 
 
 class Student( Document ):
